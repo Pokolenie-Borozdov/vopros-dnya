@@ -11,6 +11,19 @@
     <!-- Конфигурационный файл будет создан GitHub Actions -->
     <script src="config.js"></script>
     <style>
+        :root {
+            --primary-light: #e4c1f9;
+            --primary-main: #a9def9;
+            --secondary-light: #d0f4de;
+            --accent: #fcf6bd;
+            --highlight: #ff99c8;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --background: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +32,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-main) 100%);
             min-height: 100vh;
             padding: 10px;
         }
@@ -27,110 +40,120 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow);
+            padding: 30px;
+            border: 2px solid var(--accent);
         }
 
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 2em;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 2.5em;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            background: linear-gradient(90deg, var(--highlight), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         h1 .icon {
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1em;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            font-size: 1.1em;
+            font-weight: 500;
         }
 
         .form-section {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            background: var(--background);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border-top: 4px solid var(--highlight);
         }
 
         .form-title {
-            color: #4a5568;
-            margin-bottom: 15px;
-            font-size: 1.3em;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-size: 1.5em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             position: relative;
         }
 
         label {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 600;
-            color: #2d3748;
-            font-size: 0.95em;
+            color: var(--text-dark);
+            font-size: 1em;
         }
 
         input, textarea, select {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
             font-size: 16px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
         }
 
         input:focus, textarea:focus, select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: var(--primary-main);
+            box-shadow: 0 0 0 4px rgba(169, 222, 249, 0.3);
+            background-color: var(--background);
         }
 
         textarea {
-            min-height: 100px;
+            min-height: 120px;
             resize: vertical;
         }
 
         .required {
-            color: #e53e3e;
+            color: #e74c3c;
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--highlight) 0%, var(--primary-light) 100%);
             color: white;
             border: none;
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
             width: 100%;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(255, 153, 200, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 153, 200, 0.4);
         }
 
         .btn:active {
@@ -138,23 +161,23 @@
         }
 
         .btn:disabled {
-            background: #a0aec0;
+            background: #bdc3c7;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
 
         .success-message {
-            background: #48bb78;
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--secondary-light) 0%, var(--accent) 100%);
+            color: var(--text-dark);
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
             display: none;
-            box-shadow: 0 10px 25px rgba(72, 187, 120, 0.3);
-            border: 2px solid #38a169;
-            animation: popIn 0.3s ease-out;
+            box-shadow: 0 10px 25px rgba(208, 244, 222, 0.4);
+            border: 2px dashed var(--highlight);
+            animation: popIn 0.4s ease-out;
         }
 
         .success-message.show {
@@ -162,30 +185,33 @@
         }
 
         .success-message .icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 3.5em;
+            margin-bottom: 20px;
             display: block;
+            color: #27ae60;
         }
 
         .success-message h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
         }
 
         .success-message p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             opacity: 0.9;
+            margin-bottom: 10px;
         }
 
         .error-message {
-            background: #e53e3e;
+            background: linear-gradient(135deg, #ff9999 0%, #ff6666 100%);
             color: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 18px;
+            border-radius: 12px;
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
             display: none;
             animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
         }
 
         .error-message.show {
@@ -193,15 +219,16 @@
         }
 
         .field-error {
-            border-color: #e53e3e !important;
-            box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1) !important;
+            border-color: #e74c3c !important;
+            box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2) !important;
         }
 
         .field-error-message {
-            color: #e53e3e;
-            font-size: 0.85em;
-            margin-top: 5px;
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-top: 8px;
             display: none;
+            font-weight: 500;
         }
 
         .field-error-message.show {
@@ -211,10 +238,11 @@
         .loading {
             display: none;
             text-align: center;
-            padding: 25px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 12px;
-            margin: 20px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(169, 222, 249, 0.2) 0%, rgba(252, 246, 189, 0.2) 100%);
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed var(--primary-main);
         }
 
         .loading.show {
@@ -222,13 +250,13 @@
         }
 
         .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--highlight);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
         }
 
         @keyframes spin {
@@ -256,115 +284,130 @@
         }
 
         .info-box {
-            background: #ebf8ff;
-            border-left: 3px solid #4299e1;
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 25px;
-            font-size: 0.95em;
+            background: linear-gradient(135deg, rgba(169, 222, 249, 0.2) 0%, rgba(228, 193, 249, 0.2) 100%);
+            border-left: 4px solid var(--primary-main);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 30px;
+            font-size: 1em;
+            border-right: 1px solid #e0e0e0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .info-box h3 {
-            color: #2b6cb0;
-            margin-bottom: 10px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 1.1em;
+            gap: 10px;
+            font-size: 1.2em;
         }
 
         .info-box ul {
-            padding-left: 20px;
+            padding-left: 25px;
         }
 
         .info-box li {
-            margin-bottom: 7px;
-            color: #4a5568;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            line-height: 1.5;
         }
 
         .date-selector {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .date-option {
-            padding: 15px 10px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
+            padding: 18px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s ease;
-            background-color: white;
-            font-size: 1em;
+            transition: all 0.3s ease;
+            background-color: var(--background);
+            font-size: 1.1em;
+            box-shadow: 0 3px 8px var(--shadow);
         }
 
         .date-option:hover:not(.disabled) {
-            border-color: #667eea;
-            background-color: #f8f9ff;
+            border-color: var(--primary-main);
+            background-color: rgba(169, 222, 249, 0.1);
+            transform: translateY(-3px);
         }
 
         .date-option.selected {
-            background-color: #667eea;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-main) 100%);
             color: white;
-            border-color: #667eea;
+            border-color: var(--primary-main);
+            box-shadow: 0 5px 15px rgba(169, 222, 249, 0.4);
         }
 
         .date-option.selected:hover {
-            background-color: #667eea;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-main) 100%);
             color: white;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px #4a5568;
+            border-color: var(--primary-main);
+            box-shadow: 0 0 0 3px var(--text-dark);
         }
 
         .date-option.disabled {
-            background-color: #f1f1f1;
-            color: #a0aec0;
+            background-color: #f5f5f5;
+            color: #bdc3c7;
             cursor: not-allowed;
-            opacity: 0.6;
+            opacity: 0.7;
+            transform: none;
+            box-shadow: none;
         }
 
         .date-option.disabled:hover {
-            border: 2px solid #e2e8f0;
-            box-shadow: 0 0 0 2px #e2e8f0;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 3px 8px var(--shadow);
         }
 
         .date-option .day {
             font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 5px;
+            font-size: 1.3em;
+            margin-bottom: 8px;
         }
 
         .date-option .date {
-            font-size: 1em;
+            font-size: 1.1em;
             opacity: 0.9;
         }
 
         .sync-status {
             text-align: center;
-            padding: 8px;
-            font-size: 0.9em;
-            color: #666;
+            padding: 12px;
+            font-size: 1em;
+            color: var(--text-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-weight: 500;
         }
 
         .author-info {
             text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            font-size: 0.9em;
-            color: #666;
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(252, 246, 189, 0.3) 0%, rgba(255, 153, 200, 0.1) 100%);
+            border-radius: 12px;
+            font-size: 1em;
+            color: var(--text-light);
+            border: 1px dashed var(--accent);
         }
 
         .author-info a {
-            color: #667eea;
+            color: #3498db;
             text-decoration: none;
+            font-weight: 600;
         }
 
         .author-info a:hover {
@@ -373,7 +416,7 @@
 
         /* Placeholder styles with examples */
         input::placeholder, textarea::placeholder {
-            color: #a0aec0;
+            color: #95a5a6;
             font-style: italic;
         }
 
@@ -384,51 +427,51 @@
             }
             
             .container {
-                padding: 15px;
-                border-radius: 12px;
+                padding: 20px;
+                border-radius: 15px;
             }
             
             h1 {
-                font-size: 1.8em;
-                gap: 8px;
-            }
-            
-            .subtitle {
-                font-size: 0.95em;
-                margin-bottom: 20px;
-            }
-            
-            .form-section {
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-            
-            .form-title {
-                font-size: 1.2em;
-                margin-bottom: 12px;
-            }
-            
-            .date-selector {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                font-size: 2.2em;
                 gap: 10px;
             }
             
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 25px;
+            }
+            
+            .form-section {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+            
+            .form-title {
+                font-size: 1.3em;
+                margin-bottom: 15px;
+            }
+            
+            .date-selector {
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+                gap: 12px;
+            }
+            
             .date-option {
-                padding: 12px 8px;
-                font-size: 0.9em;
+                padding: 15px 10px;
+                font-size: 1em;
             }
             
             .btn {
-                padding: 12px 20px;
-                font-size: 15px;
+                padding: 14px 25px;
+                font-size: 16px;
             }
             
             .success-message {
-                padding: 20px;
+                padding: 25px;
             }
             
             .success-message .icon {
-                font-size: 2.5em;
+                font-size: 3em;
             }
         }
 
@@ -438,29 +481,29 @@
             }
             
             .container {
-                padding: 12px;
+                padding: 15px;
             }
             
             h1 {
-                font-size: 1.6em;
+                font-size: 2em;
             }
             
             .subtitle {
-                font-size: 0.9em;
+                font-size: 0.95em;
             }
             
             .form-section {
-                padding: 12px;
+                padding: 15px;
             }
             
             .date-selector {
-                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-                gap: 8px;
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 10px;
             }
             
             .date-option {
-                padding: 10px 6px;
-                font-size: 0.85em;
+                padding: 12px 8px;
+                font-size: 0.9em;
             }
             
             input, textarea {
@@ -468,15 +511,15 @@
             }
             
             .success-message {
-                padding: 15px;
+                padding: 20px;
             }
             
             .success-message .icon {
-                font-size: 2em;
+                font-size: 2.5em;
             }
             
             .success-message h3 {
-                font-size: 1.3em;
+                font-size: 1.5em;
             }
         }
     </style>
@@ -518,7 +561,7 @@
             <form id="questionForm">
                 <div class="form-group">
                     <label for="telegram">Ссылка на Telegram <span class="required">*</span></label>
-                    <input type="text" id="telegram" name="telegram" placeholder="https://t.me/username или @username (пример: @BorozdovNikita)" required>
+                    <input type="text" id="telegram" name="telegram" placeholder="https://t.me/username   или @username (пример: @BorozdovNikita)" required>
                     <div class="field-error-message" id="telegramError">Пожалуйста, заполните это поле</div>
                 </div>
 
@@ -582,7 +625,7 @@
         if (typeof CONFIG === 'undefined') {
             document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('syncStatus').innerHTML = '<span>❌</span> Ошибка: конфигурация не загружена';
-                document.getElementById('syncStatus').style.color = '#e53e3e';
+                document.getElementById('syncStatus').style.color = '#e74c3c';
             });
         } else {
             document.addEventListener('DOMContentLoaded', function() {
@@ -657,7 +700,7 @@
                             // Обновляем интерфейс
                             generateDateSelector();
                             document.getElementById('syncStatus').innerHTML = '<span>✅</span> Данные синхронизированы';
-                            document.getElementById('syncStatus').style.color = '#48bb78';
+                            document.getElementById('syncStatus').style.color = '#27ae60';
                             
                             // Слушаем изменения в реальном времени
                             database.ref('occupiedDates').on('value', (snapshot) => {
@@ -677,7 +720,7 @@
                             
                         } catch (error) {
                             document.getElementById('syncStatus').innerHTML = '<span>❌</span> Ошибка синхронизации';
-                            document.getElementById('syncStatus').style.color = '#e53e3e';
+                            document.getElementById('syncStatus').style.color = '#e74c3c';
                         }
                     }
 
@@ -926,7 +969,7 @@ ${formData.get('expectation')}
                     
                 } catch (error) {
                     document.getElementById('syncStatus').innerHTML = '<span>❌</span> Критическая ошибка инициализации';
-                    document.getElementById('syncStatus').style.color = '#e53e3e';
+                    document.getElementById('syncStatus').style.color = '#e74c3c';
                 }
             });
         }
